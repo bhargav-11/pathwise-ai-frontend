@@ -10,6 +10,7 @@ const Home = () => {
   const [shouldReload, setShouldReload] = useState(false);
   const [allHistory, setAllHistory] = useState([]);
   const [selectedItemIndex, setSelectedItemIndex] = useState(null);
+  const [isnewchat,setisNewchat] =useState(true)
 
   useEffect(() => {
     axios
@@ -21,7 +22,10 @@ const Home = () => {
         console.log(error);
       });
   }, [shouldReload]);
-
+const newChat = () =>{
+  setisNewchat(!isnewchat)
+  console.log(isnewchat)
+}
   const gethistory = (id) => {
     axios
       .get("http://localhost:5000/get_chat_history/" + id)
@@ -46,6 +50,8 @@ const Home = () => {
           allHistory={allHistory}
           clearhistory={clearhistory}
           selectedItemIndex={selectedItemIndex}
+          newChat={newChat}
+          isnewchat={isnewchat}
         />
         <Routes>
           <Route
@@ -55,6 +61,7 @@ const Home = () => {
                 chathistoryList={chathistoryList}
                 chat_history_id={chat_id}
                 setShouldReload={setShouldReload}
+                isnewchat={isnewchat}
               />
             }
           />

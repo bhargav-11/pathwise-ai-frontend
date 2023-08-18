@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import Message from "./Message";
 
-function Messages({ messageList, loading }) {
+function Messages({ messageList, loading,isnewchat }) {
   const messagesEndRef = useRef(null);
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({
@@ -14,15 +14,8 @@ function Messages({ messageList, loading }) {
   }, [JSON.stringify(messageList)]);
   return (
     <>
-      <div className="messages" ref={messagesEndRef}>
-        {messageList ? (
-          messageList.map((value, index) => (
-            <Message key={index} ask={value.user} response={value.bot} />
-          ))
-        ) : (
-          <div className="no-messages"></div>
-        )}
-        {loading && <div class="loader" />}
+      <div className="messages">
+       <Message isnewchat={isnewchat}/>
       </div>
     </>
   );

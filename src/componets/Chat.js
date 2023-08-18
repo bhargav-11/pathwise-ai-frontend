@@ -4,8 +4,32 @@ import Messages from "./Messages";
 import Input from "./Input";
 import chat from "../images/chat.png";
 import logo from "../images/logo.svg";
+import { Box, Slider } from "@mui/material";
 
-export const Chat = ({ chathistoryList, chat_history_id, setShouldReload }) => {
+const marks = [
+  {
+    value: 0,
+    label: "0",
+  },
+  {
+    value: 50,
+    label: "0.5",
+  },
+  {
+    value: 100,
+    label: "1",
+  },
+];
+
+function valuetext(value: number) {
+  return `${value}°C`;
+}
+export const Chat = ({
+  chathistoryList,
+  chat_history_id,
+  setShouldReload,
+  isnewchat,
+}) => {
   const [message, setMessage] = useState("");
   const [messageList, setMessageList] = useState();
   const [chat_id, setChatId] = useState(chat_history_id);
@@ -59,14 +83,14 @@ export const Chat = ({ chathistoryList, chat_history_id, setShouldReload }) => {
       <div className="chat-space">
         <div className="container">
           <div className="row justify-content-center mt-2 mb-2">
-            <div className="col-md-2 ">
+            <div className="col-md-3 ">
               <div className="box">
                 <img src={chat} />
                 <div
                   className="ps-3"
                   style={{ color: "#3B8CFA", fontSize: "20px" }}
                 >
-                  Luna-Chat
+                  Chat Bot
                 </div>
               </div>
             </div>
@@ -77,16 +101,55 @@ export const Chat = ({ chathistoryList, chat_history_id, setShouldReload }) => {
                   className="ps-3"
                   style={{ color: "black", fontSize: "13px" }}
                 >
-                  I am your AI teacher assistant and I am here to help you. Ask
-                  any questions related to your science curriculum!
+                  I am your AI assistant and I am here to help you to assist
+                  with your drive folder content.
                 </p>
               </div>
             </div>
           </div>
         </div>
       </div>
+      <div className="container folder-content mt-2">
+        <div className="row justify-content-center">
+          <div className="col-md-4 folder-content-1">
+            <div class=" row">
+              <div class="row">
+                <label for="inputPassword" class="col-sm-3 col-form-label">
+                  folderId
+                </label>
+                <div class="col-sm-8 ms-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputPassword"
+                    placeholder="23333455423"
+                  />
+                </div>
+              </div>
+            </div>
+            <button>retrain</button>
+          </div>
+          <div className="col-md-4 folder-content-1 ms-3">
+            <div className="me-4 mt-2">temperature</div>{" "}
+            <Box sx={{ width: 180 }}>
+              <Slider
+                aria-label="Custom marks"
+                defaultValue={80}
+                getAriaValueText={valuetext}
+                step={10}
+                marks={marks}
+                valueLabelDisplay="auto"
+              />
+            </Box>
+          </div>
+        </div>
+      </div>
       <div className="chat-messages">
-        <Messages messageList={messageList} loading={loading} />
+        <Messages
+          messageList={messageList}
+          loading={loading}
+          isnewchat={isnewchat}
+        />
       </div>
       <Input
         message={message}
@@ -97,13 +160,6 @@ export const Chat = ({ chathistoryList, chat_history_id, setShouldReload }) => {
         buttonClicked={buttonClicked}
         setButtonClicked={setButtonClicked}
       />
-      <hr className="mx-5" />
-      <div className="footer">
-        <div className="ms-5">Created by</div>
-        <div className="ms-3">
-          <img src={logo} />
-        </div>
-      </div>
     </div>
   );
 };
