@@ -21,7 +21,7 @@ const marks = [
   },
 ];
 
-function valuetext(value: number) {
+function valuetext(value) {
   return `${value}°C`;
 }
 export const Chat = ({
@@ -135,7 +135,7 @@ export const Chat = ({
               <Slider
                 aria-label="Custom marks"
                 defaultValue={80}
-                getAriaValueText={valuetext}
+                // getAriaValueText={valuetext}
                 step={10}
                 marks={marks}
                 valueLabelDisplay="auto"
