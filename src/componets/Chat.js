@@ -90,7 +90,7 @@ export const Chat = ({
                   className="ps-3"
                   style={{ color: "#3B8CFA", fontSize: "20px" }}
                 >
-                  Chat Bot
+                  ChatBot
                 </div>
               </div>
             </div>

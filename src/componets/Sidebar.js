@@ -14,7 +14,7 @@ const Sidebar = ({
     <div className="sidebar">
       <div className="sidebar-logo">
         <div className="logo">
-          <div>Chat Bot</div>
+          <div>ChatBot</div>
         </div>
         <div className="sidebutton">
           <div>
@@ -50,48 +50,51 @@ const Sidebar = ({
       </div>
       <Link to="/" className="text-decoration-none">
         <div
-          className={isnewchat ? "select-newchat" : "newchat" }
+          className={isnewchat ? "select-newchat" : "newchat"}
           onClick={() => {
             newChat();
           }}
         >
-          <div className={isnewchat ? "select-newchat-input" : "newchat-input" }>New Chat</div>
-          {isnewchat ? (<div className="addnewchat-icon">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="46"
-              height="46"
-              viewBox="0 0 46 46"
-              fill="none"
-            >
-              <path
-                d="M23 17.25V28.75M28.75 23H17.25M40.25 23C40.25 25.2653 39.8038 27.5084 38.9369 29.6013C38.07 31.6942 36.7994 33.5958 35.1976 35.1976C33.5958 36.7994 31.6942 38.07 29.6013 38.9369C27.5084 39.8038 25.2653 40.25 23 40.25C20.7347 40.25 18.4916 39.8038 16.3987 38.9369C14.3058 38.07 12.4042 36.7994 10.8024 35.1976C9.2006 33.5958 7.92997 31.6942 7.06308 29.6013C6.19618 27.5084 5.75 25.2653 5.75 23C5.75 18.425 7.56741 14.0374 10.8024 10.8024C14.0374 7.56741 18.425 5.75 23 5.75C27.575 5.75 31.9626 7.56741 35.1976 10.8024C38.4326 14.0374 40.25 18.425 40.25 23Z"
-                stroke="#3b8cfa"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </div>):(
-            <div className="addnewchat-icon">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="46"
-              height="46"
-              viewBox="0 0 46 46"
-              fill="none"
-            >
-              <path
-                d="M23 17.25V28.75M28.75 23H17.25M40.25 23C40.25 25.2653 39.8038 27.5084 38.9369 29.6013C38.07 31.6942 36.7994 33.5958 35.1976 35.1976C33.5958 36.7994 31.6942 38.07 29.6013 38.9369C27.5084 39.8038 25.2653 40.25 23 40.25C20.7347 40.25 18.4916 39.8038 16.3987 38.9369C14.3058 38.07 12.4042 36.7994 10.8024 35.1976C9.2006 33.5958 7.92997 31.6942 7.06308 29.6013C6.19618 27.5084 5.75 25.2653 5.75 23C5.75 18.425 7.56741 14.0374 10.8024 10.8024C14.0374 7.56741 18.425 5.75 23 5.75C27.575 5.75 31.9626 7.56741 35.1976 10.8024C38.4326 14.0374 40.25 18.425 40.25 23Z"
-                stroke="white"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
+          <div className={isnewchat ? "select-newchat-input" : "newchat-input"}>
+            New Chat
           </div>
+          {isnewchat ? (
+            <div className="addnewchat-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="46"
+                height="46"
+                viewBox="0 0 46 46"
+                fill="none"
+              >
+                <path
+                  d="M23 17.25V28.75M28.75 23H17.25M40.25 23C40.25 25.2653 39.8038 27.5084 38.9369 29.6013C38.07 31.6942 36.7994 33.5958 35.1976 35.1976C33.5958 36.7994 31.6942 38.07 29.6013 38.9369C27.5084 39.8038 25.2653 40.25 23 40.25C20.7347 40.25 18.4916 39.8038 16.3987 38.9369C14.3058 38.07 12.4042 36.7994 10.8024 35.1976C9.2006 33.5958 7.92997 31.6942 7.06308 29.6013C6.19618 27.5084 5.75 25.2653 5.75 23C5.75 18.425 7.56741 14.0374 10.8024 10.8024C14.0374 7.56741 18.425 5.75 23 5.75C27.575 5.75 31.9626 7.56741 35.1976 10.8024C38.4326 14.0374 40.25 18.425 40.25 23Z"
+                  stroke="#3b8cfa"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+          ) : (
+            <div className="addnewchat-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="46"
+                height="46"
+                viewBox="0 0 46 46"
+                fill="none"
+              >
+                <path
+                  d="M23 17.25V28.75M28.75 23H17.25M40.25 23C40.25 25.2653 39.8038 27.5084 38.9369 29.6013C38.07 31.6942 36.7994 33.5958 35.1976 35.1976C33.5958 36.7994 31.6942 38.07 29.6013 38.9369C27.5084 39.8038 25.2653 40.25 23 40.25C20.7347 40.25 18.4916 39.8038 16.3987 38.9369C14.3058 38.07 12.4042 36.7994 10.8024 35.1976C9.2006 33.5958 7.92997 31.6942 7.06308 29.6013C6.19618 27.5084 5.75 25.2653 5.75 23C5.75 18.425 7.56741 14.0374 10.8024 10.8024C14.0374 7.56741 18.425 5.75 23 5.75C27.575 5.75 31.9626 7.56741 35.1976 10.8024C38.4326 14.0374 40.25 18.425 40.25 23Z"
+                  stroke="white"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
           )}
-          
         </div>
       </Link>
       <div className="history">
@@ -117,7 +120,7 @@ const Sidebar = ({
         )}
       </div>
       <div className="save-history">
-      <div className="selected-type">
+        <div className="selected-type">
           <div className="questionicon">
             <BiMessage className="selectedicon" />
             <span className="selected-link ">Chat 1</span>
