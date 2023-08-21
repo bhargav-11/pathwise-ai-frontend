@@ -12,18 +12,15 @@ const marks = [
     label: "0",
   },
   {
-    value: 50,
+    value: 0.5,
     label: "0.5",
   },
   {
-    value: 100,
+    value: 1,
     label: "1",
   },
 ];
 
-function valuetext(value) {
-  return `${value}°C`;
-}
 export const Chat = ({
   chathistoryList,
   chat_history_id,
@@ -79,7 +76,7 @@ export const Chat = ({
   };
 
   return (
-    <div className="chat">
+    <div className="chat" style={{ marginTop: "0.2%" }}>
       <div className="chat-space">
         <div className="container">
           <div className="row justify-content-center mt-2 mb-2">
@@ -109,16 +106,21 @@ export const Chat = ({
           </div>
         </div>
       </div>
-      <div className="container folder-content mt-2">
+      <div className="container folder-content mt-3">
         <div className="row justify-content-center">
           <div className="col-md-4 folder-content-1">
             <div class=" row">
               <div class="row">
-                <label for="inputPassword" class="col-sm-3 col-form-label">
+                <label
+                  for="inputPassword"
+                  class="col-sm-3 col-form-label"
+                  style={{ marginTop: "3%" }}
+                >
                   folderId
                 </label>
                 <div class="col-sm-8 ms-3">
                   <input
+                    style={{ marginTop: "3%" }}
                     type="text"
                     class="form-control"
                     id="inputPassword"
@@ -130,13 +132,14 @@ export const Chat = ({
             <button>retrain</button>
           </div>
           <div className="col-md-4 folder-content-1 ms-3">
-            <div className="me-4 mt-2">temperature</div>{" "}
+            <div className="me-4 mt-3">temperature</div>{" "}
             <Box sx={{ width: 180 }}>
               <Slider
                 aria-label="Custom marks"
-                defaultValue={80}
-                // getAriaValueText={valuetext}
-                step={10}
+                defaultValue={0.5}
+                min={0.0}
+                max={1}
+                step={0.1}
                 marks={marks}
                 valueLabelDisplay="auto"
               />

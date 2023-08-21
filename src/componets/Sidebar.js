@@ -5,7 +5,6 @@ import { BiMessage } from "react-icons/bi";
 const Sidebar = ({
   gethistory,
   allHistory,
-  clearhistory,
   newChat,
   isnewchat,
   selectedItemIndex,
@@ -155,8 +154,16 @@ const Sidebar = ({
         </div>
         <div className="question-type2">
           <div className="questionicon">
-            <BiMessage className="i" />
-            <span className="disablelink">Chat 1</span>
+            <BiMessage
+              className="i"
+              style={{ position: "relative", left: "12px" }}
+            />
+            <span
+              className="disablelink"
+              style={{ position: "relative", left: "10px" }}
+            >
+              Chat 1
+            </span>
           </div>
           <div className="history-delete">
             <svg
@@ -188,10 +195,18 @@ const Sidebar = ({
         </div>
         <div className="question-type2">
           <div className="questionicon">
-            <BiMessage className="i" />
-            <span className="disablelink">Chat 1</span>
+            <BiMessage
+              className="i"
+              style={{ position: "relative", left: "12px" }}
+            />
+            <span
+              className="disablelink"
+              style={{ position: "relative", left: "10px" }}
+            >
+              Chat 1
+            </span>
           </div>
-          <div className="history-delete">
+          <div className="history-delete ">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="36"
