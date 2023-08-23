@@ -11,7 +11,8 @@ import {
   MDBTabsPane,
 } from "mdb-react-ui-kit";
 import signin from "../images/Sign in.gif";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
+import {FaLongArrowAltRight} from "react-icons/fa"
 
 function Signin() {
   const [loginRegisterActive, setLoginRegisterActive] = useState("login");
@@ -102,6 +103,9 @@ function Signin() {
               <MDBBtn type="submit" className="mb-4" block onClick={handlesubmit}>
                 Sign In User
               </MDBBtn>
+              <div style={{textAlign:"center"}}>
+ <Link to="http://localhost:5000/login" className="text-center text-decoration-none">Admin Login <FaLongArrowAltRight/></Link>
+ </div>
             </form>
           </MDBTabsPane>
         </MDBTabsContent>
