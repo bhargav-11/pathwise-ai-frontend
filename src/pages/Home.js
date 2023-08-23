@@ -10,7 +10,7 @@ const Home = () => {
   const [shouldReload, setShouldReload] = useState(false);
   const [allHistory, setAllHistory] = useState([]);
   const [selectedItemIndex, setSelectedItemIndex] = useState(null);
-  const [isnewchat, setIsNewChat] = useState(true);
+  const [isnewchat, setIsNewChat] = useState(false);
   // useEffect(() => {
   //   axios
   //     .get("http://localhost:5000/get_all_chat_history")

@@ -161,9 +161,9 @@ body {
 }
 .chat-messages {
   margin-top: 1rem;
-  padding: 0 11rem;
+  padding: 0 11.2rem;
   flex: 1;
-  max-height: calc(74vh - 45px);
+  max-height: calc(69vh - 45px);
   overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: #ccc #f7f7f7;
@@ -225,7 +225,7 @@ body {
 } */
 
 .message {
-  min-height: 66vh;
+  min-height: 62vh;
   overflow: hidden;
 }
 .google-folder-id {
@@ -250,7 +250,7 @@ body {
   background: #c5ddff;
   font-size: 0.9rem;
   margin-right: 10rem;
-  margin-top: 10%;
+  margin-top: 0.4rem;
 }
 
 .message .copy {
@@ -260,7 +260,7 @@ body {
 }
 
 .message-info .user {
-  margin-top: 0rem;
+  /* margin-top: 0rem; */
   display: flex;
   flex-direction: row-reverse;
   gap: 10px;
@@ -276,17 +276,17 @@ body {
   padding: 1rem 1rem;
   border-radius: 0.875rem;
   background: #c5ddff;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   margin-left: 10rem;
-  margin: 0.7rem 0rem 0.7rem;
+  margin: 0.4rem 0rem 0.7rem;
 }
 
 .google-folder-id .google-folder-modal {
-  margin: 9rem 13rem;
+  margin: 6rem 13rem;
   border-radius: 1.8125rem;
   border: 3px solid #3b8cfa;
   background: #3b8cfa;
-  padding: 2.9rem 0rem;
+  padding: 2rem 0rem;
 }
 
 .google-folder-id .google-folder-content {
@@ -333,8 +333,8 @@ body {
 .message-input-container {
   display: flex;
   justify-content: center;
-  margin-left: 17%;
-  width: 66%;
+  margin-left: 12.4rem;
+  width: 68%;
   border: 1px solid #000;
   border-radius: 15px;
   padding: 10px;
