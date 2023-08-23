@@ -1,7 +1,8 @@
 import React, { useRef, useEffect, useState } from "react";
 import Message from "./Message";
+import Googlefolderid from "./Googlefolder";
 
-function Messages({ messageList, loading,isnewchat }) {
+function Messages({ messageList, loading, isnewchat }) {
   const messagesEndRef = useRef(null);
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({
@@ -15,7 +16,7 @@ function Messages({ messageList, loading,isnewchat }) {
   return (
     <>
       <div className="messages">
-       <Message isnewchat={isnewchat}/>
+        {isnewchat ? <Googlefolderid /> : <Message />}
       </div>
     </>
   );

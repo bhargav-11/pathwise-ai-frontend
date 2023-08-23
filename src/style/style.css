@@ -45,8 +45,7 @@ body {
   border-radius: 0.6rem;
   border: 3px solid #fff;
   padding: 0.3rem 1rem;
-  /* padding-right: 2rem; */
-  /* padding-left: 2.5rem; */
+
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -55,9 +54,6 @@ body {
   color: #3b8cfa;
   font-size: 1.3rem;
 }
-/* .sidebar .history {
-  padding: 1.5rem 3.44rem;
-} */
 
 .sidebar .chat_history {
   font-size: 1rem;
@@ -69,7 +65,6 @@ body {
   margin-left: 5%;
 }
 .sidebar .select-newchat {
-  /* margin: 0rem 1rem; */
   border-radius: 0.6rem;
   border: 3px solid #3b8cfa;
   background-color: #fff;
@@ -112,11 +107,8 @@ body {
   background-color: #fff;
   border-radius: 3px;
 }
-.save-history::-webkit-scrollbar-track {
-  /* background-color: #f7f7f7; */
-}
+
 .save-history .question-type2 {
-  /* margin: 0rem 0.5rem; */
   padding: 1rem 1.7rem;
   display: flex;
   justify-content: space-between;
@@ -140,7 +132,6 @@ body {
   color: #fff;
   font-size: 1.1rem;
   font-weight: 400;
-  /* padding-left: 0.56rem; */
 }
 
 .save-history .selected-type .selected-link {
@@ -150,10 +141,6 @@ body {
   position: relative;
   left: 16px;
   top: 6px;
-
-  /* padding-top: 5%; */
-
-  /* padding-left: 0.56rem; */
 }
 .save-history .selected-type .selectedicon {
   color: #3b8cfa;
@@ -161,8 +148,6 @@ body {
   position: relative;
   left: 12px;
   top: 6px;
-
-  /* margin-top: 0.5rem; */
 }
 .chat {
   width: 80%;
@@ -174,14 +159,11 @@ body {
   border-bottom: 3px solid #e4e4e4;
   padding-bottom: 0.3%;
 }
-/* .collspan .chat-space {
-  border-bottom: 3px solid #e4e4e4;
-  padding-top: 3%;
-} */
 .chat-messages {
-  padding: 0 13rem;
+  margin-top: 1rem;
+  padding: 0 11rem;
   flex: 1;
-  max-height: calc(78vh - 50px);
+  max-height: calc(74vh - 45px);
   overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: #ccc #f7f7f7;
@@ -204,7 +186,7 @@ body {
 }
 
 .folder-content .folder-content-1 {
-  padding: 0.2rem rem;
+  padding: 0.2rem 0rem;
   border-radius: 0.3125rem;
   border: 1px solid #3b8cfa;
   background: #fff;
@@ -223,7 +205,7 @@ body {
 }
 
 .folder-content .folder-content-1 button {
-  margin: 0.5rem 0rem;
+  margin: 0.5rem 0.4rem;
   border-radius: 1.25rem;
   background: #3b8cfa;
   box-shadow: 0px 1px 3px 0px #004eb9 inset,
@@ -237,12 +219,19 @@ body {
   border: none;
 }
 
-.messages {
-  /* padding: 9px; */
-  min-height: 68vh;
+/* .messages {
+ 
+
+} */
+
+.message {
+  min-height: 66vh;
   overflow: hidden;
 }
-
+.google-folder-id {
+  max-height: calc(74vh - 45px);
+  overflow: hidden;
+}
 .message .message-info .other {
   display: flex;
   flex-direction: row;
@@ -252,22 +241,21 @@ body {
 .message .other img {
   width: 7%;
   height: 7%;
-  margin-left: 4%;
-  margin-top: 10%;
+  margin-left: 2%;
 }
 
 .message .other .message-content {
-  padding: 0.7rem;
+  padding: 0.9rem;
   border-radius: 0.875rem;
   background: #c5ddff;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   margin-right: 10rem;
   margin-top: 10%;
 }
 
 .message .copy {
   color: #3b8cfa;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   cursor: pointer;
 }
 
@@ -281,7 +269,7 @@ body {
 .user img {
   width: 7%;
   height: 7%;
-  margin-right: 3%;
+  margin-right: 2%;
 }
 
 .user .message-content {
@@ -294,12 +282,11 @@ body {
 }
 
 .google-folder-id .google-folder-modal {
-  min-height: 32vh;
-  margin: 6rem 12rem;
+  margin: 9rem 13rem;
   border-radius: 1.8125rem;
   border: 3px solid #3b8cfa;
   background: #3b8cfa;
-  padding: 2rem;
+  padding: 2.9rem 0rem;
 }
 
 .google-folder-id .google-folder-content {
@@ -347,7 +334,7 @@ body {
   display: flex;
   justify-content: center;
   margin-left: 17%;
-  width: 65.5%;
+  width: 66%;
   border: 1px solid #000;
   border-radius: 15px;
   padding: 10px;
@@ -379,18 +366,19 @@ body {
   font-size: 1.5rem;
 }
 .box {
-  padding: 0.8rem 0.2rem;
+  padding: 1rem 5rem;
   border-radius: 0.3125rem;
   border: 1px solid #3b8cfa;
   background: #fff;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   display: flex;
   justify-content: center;
+  width: 102%;
+  margin-right: 10%;
 }
 .box1 {
   padding: 0.33rem 3rem;
-  /* padding-left: 1.2rem;
-  padding-right: 3rem; */
+
   border-radius: 0.3125rem;
   border: 1px solid #3b8cfa;
   background: #fff;
@@ -450,5 +438,40 @@ body {
 
   100% {
     transform: rotate(360deg);
+  }
+}
+.signin {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+}
+
+.signin .signin-part1 {
+  background-color: #3b8cfa;
+  width: 50%;
+}
+
+.signin .signin-part1 img {
+  margin-top: 20%;
+}
+.signin .signin-part2 {
+  width: 50%;
+  padding-right: 12%;
+  padding-left: 12%;
+  margin-top: 15%;
+}
+
+.signin .signin-part2 h1 {
+  text-align: center;
+  color: #3b8cfa;
+}
+@media (min-width: 768px) and (max-width: 912px) {
+  .col-md-3,
+  .col-md-5 {
+    width: 100%; /* Make columns full width on smaller screens */
+  }
+
+  .box1 .ps-5 {
+    text-align: center; /* Center-align the text in the second column */
   }
 }

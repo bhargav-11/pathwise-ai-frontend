@@ -80,7 +80,7 @@ export const Chat = ({
       <div className="chat-space">
         <div className="container">
           <div className="row justify-content-center mt-2 mb-2">
-            <div className="col-md-3 ">
+            <div className="col-md-3" style={{ width: "28%" }}>
               <div className="box">
                 <img src={chat} />
                 <div
@@ -114,7 +114,11 @@ export const Chat = ({
                 <label
                   for="inputPassword"
                   class="col-sm-3 col-form-label"
-                  style={{ marginTop: "3%" }}
+                  style={{
+                    marginTop: "2%",
+                    color: "#3b8cfa",
+                    marginLeft: "0.5rem",
+                  }}
                 >
                   folderId
                 </label>
@@ -132,11 +136,14 @@ export const Chat = ({
             <button>retrain</button>
           </div>
           <div className="col-md-4 folder-content-1 ms-3">
-            <div className="me-4 mt-3">temperature</div>{" "}
+            <div className="me-4 mt-2" style={{ marginLeft: "1rem" }}>
+              temperature
+            </div>{" "}
             <Box sx={{ width: 180 }}>
               <Slider
                 aria-label="Custom marks"
-                defaultValue={0.5}
+                defaultValue={0.8}
+                // getAriaValueText={valuetext}
                 min={0.0}
                 max={1}
                 step={0.1}
@@ -154,15 +161,21 @@ export const Chat = ({
           isnewchat={isnewchat}
         />
       </div>
-      <Input
-        message={message}
-        setMessage={setMessage}
-        handleApiCall={handleApiCall}
-        setMessageList={setMessageList}
-        setRefrshMsgList={setRefrshMsgList}
-        buttonClicked={buttonClicked}
-        setButtonClicked={setButtonClicked}
-      />
+      {isnewchat ? (
+        <></>
+      ) : (
+        <>
+          <Input
+            message={message}
+            setMessage={setMessage}
+            handleApiCall={handleApiCall}
+            setMessageList={setMessageList}
+            setRefrshMsgList={setRefrshMsgList}
+            buttonClicked={buttonClicked}
+            setButtonClicked={setButtonClicked}
+          />
+        </>
+      )}
     </div>
   );
 };
