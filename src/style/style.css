@@ -166,7 +166,7 @@ body {
 
 .chat-messages {
   margin-top: 1rem;
-  padding: 0 13rem;
+  padding: 0 11rem;
   flex: 1;
   max-height: calc(74vh - 45px);
   overflow-y: auto;
@@ -273,7 +273,7 @@ body {
 .user img {
   width: 7%;
   height: 7%;
-  margin-right: 1.5%;
+  margin-right: 2%;
 }
 
 .user .message-content {
@@ -286,7 +286,7 @@ body {
 }
 
 .google-folder-id .google-folder-modal {
-  margin: 9rem 16rem;
+  margin: 9rem 13rem;
   border-radius: 1.8125rem;
   border: 3px solid #3b8cfa;
   background: #3b8cfa;
@@ -338,7 +338,7 @@ body {
   display: flex;
   justify-content: center;
   margin-left: 17%;
-  width: 65.5%;
+  width: 66%;
   border: 1px solid #000;
   border-radius: 15px;
   padding: 10px;
@@ -443,5 +443,41 @@ body {
 
   100% {
     transform: rotate(360deg);
+  }
+}
+.signin {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+}
+
+.signin .signin-part1 {
+  background-color: #3b8cfa;
+  width: 50%;
+}
+
+.signin .signin-part1 img{
+  margin-top: 20%;
+}
+.signin .signin-part2 {
+  width: 50%;
+  padding-right: 12%;
+  padding-left: 12%; 
+  margin-top: 15%;
+ 
+}
+
+.signin .signin-part2 h1 {
+  text-align: center;
+  color: #3b8cfa;
+}
+@media (min-width: 768px) and (max-width: 912px) {
+  .col-md-3,
+  .col-md-5 {
+    width: 100%; /* Make columns full width on smaller screens */
+  }
+
+  .box1 .ps-5 {
+    text-align: center; /* Center-align the text in the second column */
   }
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { BiMessage } from "react-icons/bi";
 
 const Sidebar = ({
@@ -10,14 +10,19 @@ const Sidebar = ({
   isnewchat,
   selectedItemIndex,
 }) => {
+  const navigate = useNavigate();
+  const handlelogout = () =>{
+    localStorage.removeItem('islogin');
+    navigate('/');
+  }
   return (
     <div className="sidebar">
       <div className="sidebar-logo">
         <div className="logo">
           <div>ChatBot</div>
         </div>
-        <div className="sidebutton">
-          <div>
+        <div className="sidebutton" style={{cursor:"pointer"}}>
+          <div onClick={handlelogout}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="42"
