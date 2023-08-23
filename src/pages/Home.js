@@ -10,25 +10,21 @@ const Home = () => {
   const [shouldReload, setShouldReload] = useState(false);
   const [allHistory, setAllHistory] = useState([]);
   const [selectedItemIndex, setSelectedItemIndex] = useState(null);
-  const [isnewchat, setisNewchat] = useState(true)
-const navigate =useNavigate();
-  useEffect(() => {
-    axios
-      .get("http://localhost:5000/get_all_chat_history")
-      .then((response) => {
-        setAllHistory(response.data.chat_history);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-      if (!localStorage.getItem("islogin")) {
-        navigate("/");
-      }
-  }, [shouldReload]);
-  const newChat = () => {
-    setisNewchat(!isnewchat)
-    console.log(isnewchat)
-  }
+  const [isnewchat, setIsNewChat] = useState(true);
+  // useEffect(() => {
+  //   axios
+  //     .get("http://localhost:5000/get_all_chat_history")
+  //     .then((response) => {
+  //       setAllHistory(response.data.chat_history);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  //     if (!localStorage.getItem("islogin")) {
+  //       navigate("/");
+  //     }
+  // }, [shouldReload]);
+
   const gethistory = (id) => {
     axios
       .get("http://localhost:5000/get_chat_history/" + id)
@@ -53,7 +49,7 @@ const navigate =useNavigate();
           allHistory={allHistory}
           clearhistory={clearhistory}
           selectedItemIndex={selectedItemIndex}
-          newChat={newChat}
+          setIsNewChat={setIsNewChat}
           isnewchat={isnewchat}
         />
         <Chat

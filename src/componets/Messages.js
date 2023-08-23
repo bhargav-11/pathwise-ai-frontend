@@ -17,7 +17,6 @@ function Messages({ messageList, loading, isnewchat }) {
     <>
       <div className="messages">
         {isnewchat ? <Googlefolderid /> : <Message />}
-        {/* <Message isnewchat={isnewchat}/> */}
       </div>
     </>
   );

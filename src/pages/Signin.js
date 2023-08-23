@@ -11,15 +11,11 @@ import {
   MDBTabsPane,
 } from "mdb-react-ui-kit";
 import signin from "../images/Sign in.gif";
-import { useNavigate,Link } from "react-router-dom";
-import {FaLongArrowAltRight} from "react-icons/fa"
+import { useNavigate, Link } from "react-router-dom";
+import { FaLongArrowAltRight } from "react-icons/fa";
 
 function Signin() {
   const [loginRegisterActive, setLoginRegisterActive] = useState("login");
-
-  const handleLoginRegisterClick = (activeTab) => {
-    setLoginRegisterActive(activeTab);
-  };
 
   const [userData, setuserData] = useState({
     username: "",
@@ -39,15 +35,15 @@ function Signin() {
       password: userData.password,
     });
     try {
-      const apiUrl = process.env.REACT_APP_API_URL + "/user";
+      const apiUrl = process.env.REACT_APP_API_URL + "/user_login";
       axios
         .post(apiUrl, Requestdata, {
           headers: { "Content-Type": "application/json" },
         })
         .then((response) => {
-          if(response.status===200){
-            navigate('/home')
-            localStorage.setItem("islogin",response.data.is_admin)
+          if (response.status === 200) {
+            navigate("/home");
+            localStorage.setItem("islogin", response.data.is_admin);
           }
         })
         .catch((error) => {
@@ -57,11 +53,11 @@ function Signin() {
       console.log(error);
     }
   };
-  useEffect(()=>{
-    if(localStorage.getItem("islogin")){
+  useEffect(() => {
+    if (localStorage.getItem("islogin")) {
       navigate("/home");
     }
-  },[])
+  }, []);
   return (
     <div className="signin">
       <div className="signin-part1">
@@ -70,10 +66,7 @@ function Signin() {
       <div className="signin-part2 container">
         <MDBTabs pills justify className="mb-3">
           <MDBTabsItem>
-            <MDBTabsLink
-              onClick={() => handleLoginRegisterClick("login")}
-              active={loginRegisterActive === "login"}
-            >
+            <MDBTabsLink active={loginRegisterActive === "login"}>
               User
             </MDBTabsLink>
           </MDBTabsItem>
@@ -87,6 +80,7 @@ function Signin() {
                 id="form8Example2"
                 label="Username"
                 name="username"
+                required
                 value={userData.username}
                 onChange={handlechange}
               />
@@ -95,17 +89,28 @@ function Signin() {
                 type="password"
                 id="form7Example2"
                 name="password"
+                required
                 value={userData.password}
                 label="Password"
                 onChange={handlechange}
               />
 
-              <MDBBtn type="submit" className="mb-4" block onClick={handlesubmit}>
+              <MDBBtn
+                type="submit"
+                className="mb-4"
+                block
+                onClick={handlesubmit}
+              >
                 Sign In User
               </MDBBtn>
-              <div style={{textAlign:"center"}}>
- <Link to="http://localhost:5000/login" className="text-center text-decoration-none">Admin Login <FaLongArrowAltRight/></Link>
- </div>
+              <div style={{ textAlign: "center" }}>
+                <Link
+                  to="http://localhost:5000/login"
+                  className="text-center text-decoration-none"
+                >
+                  Admin Login <FaLongArrowAltRight />
+                </Link>
+              </div>
             </form>
           </MDBTabsPane>
         </MDBTabsContent>
