@@ -60,14 +60,14 @@ const Sidebar = ({
           </div>
           {isnewchat ? (
             <div className="addnewchat-icon">
-              <svg
+              <svg 
                 xmlns="http://www.w3.org/2000/svg"
                 width="46"
                 height="46"
                 viewBox="0 0 46 46"
                 fill="none"
               >
-                <path
+                <path 
                   d="M23 17.25V28.75M28.75 23H17.25M40.25 23C40.25 25.2653 39.8038 27.5084 38.9369 29.6013C38.07 31.6942 36.7994 33.5958 35.1976 35.1976C33.5958 36.7994 31.6942 38.07 29.6013 38.9369C27.5084 39.8038 25.2653 40.25 23 40.25C20.7347 40.25 18.4916 39.8038 16.3987 38.9369C14.3058 38.07 12.4042 36.7994 10.8024 35.1976C9.2006 33.5958 7.92997 31.6942 7.06308 29.6013C6.19618 27.5084 5.75 25.2653 5.75 23C5.75 18.425 7.56741 14.0374 10.8024 10.8024C14.0374 7.56741 18.425 5.75 23 5.75C27.575 5.75 31.9626 7.56741 35.1976 10.8024C38.4326 14.0374 40.25 18.425 40.25 23Z"
                   stroke="#3b8cfa"
                   stroke-width="1.5"
@@ -122,11 +122,25 @@ const Sidebar = ({
       <div className="save-history">
         <div className="selected-type">
           <div className="questionicon">
-            <BiMessage className="selectedicon" />
+          <svg className="selectedicon"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+              <path
+                d="M2.25 12.76C2.25 14.36 3.373 15.754 4.957 15.987C6.044 16.147 7.142 16.27 8.25 16.356V21L12.326 16.924C12.6024 16.6493 12.9735 16.4909 13.363 16.481C15.2644 16.4284 17.161 16.2634 19.043 15.987C20.627 15.754 21.75 14.361 21.75 12.759V6.741C21.75 5.139 20.627 3.746 19.043 3.513C16.711 3.17072 14.357 2.99926 12 3C9.608 3 7.256 3.175 4.957 3.513C3.373 3.746 2.25 5.14 2.25 6.741V12.759V12.76Z"
+                stroke="#3B8CFA"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
             <span className="selected-link ">Chat 1</span>
           </div>
-          <div className="history-delete">
-            <svg
+          <div className="history-delete" >
+            <svg 
               xmlns="http://www.w3.org/2000/svg"
               width="36"
               height="36"
@@ -155,11 +169,27 @@ const Sidebar = ({
         </div>
         <div className="question-type2">
           <div className="questionicon">
-            <BiMessage className="i" />
-            <span className="disablelink">Chat 1</span>
+            <svg
+            className="i"  
+            style={{position:"relative", left:"12px"}}
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+              <path
+                d="M2.25 12.76C2.25 14.36 3.373 15.754 4.957 15.987C6.044 16.147 7.142 16.27 8.25 16.356V21L12.326 16.924C12.6024 16.6493 12.9735 16.4909 13.363 16.481C15.2644 16.4284 17.161 16.2634 19.043 15.987C20.627 15.754 21.75 14.361 21.75 12.759V6.741C21.75 5.139 20.627 3.746 19.043 3.513C16.711 3.17072 14.357 2.99926 12 3C9.608 3 7.256 3.175 4.957 3.513C3.373 3.746 2.25 5.14 2.25 6.741V12.759V12.76Z"
+                stroke="white"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            <span className="disablelink"  style={{position:"relative", left:"10px"}}>Chat 1</span>
           </div>
           <div className="history-delete">
-            <svg
+            <svg 
               xmlns="http://www.w3.org/2000/svg"
               width="36"
               height="36"
@@ -188,18 +218,33 @@ const Sidebar = ({
         </div>
         <div className="question-type2">
           <div className="questionicon">
-            <BiMessage className="i" />
-            <span className="disablelink">Chat 1</span>
+          <svg
+            className="i"  
+            style={{position:"relative", left:"12px"}}
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+              <path
+                d="M2.25 12.76C2.25 14.36 3.373 15.754 4.957 15.987C6.044 16.147 7.142 16.27 8.25 16.356V21L12.326 16.924C12.6024 16.6493 12.9735 16.4909 13.363 16.481C15.2644 16.4284 17.161 16.2634 19.043 15.987C20.627 15.754 21.75 14.361 21.75 12.759V6.741C21.75 5.139 20.627 3.746 19.043 3.513C16.711 3.17072 14.357 2.99926 12 3C9.608 3 7.256 3.175 4.957 3.513C3.373 3.746 2.25 5.14 2.25 6.741V12.759V12.76Z"
+                stroke="white"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>            <span className="disablelink"  style={{position:"relative", left:"10px"}}>Chat 1</span>
           </div>
-          <div className="history-delete">
-            <svg
+          <div className="history-delete " >
+            <svg  
               xmlns="http://www.w3.org/2000/svg"
               width="36"
               height="36"
               viewBox="0 0 36 36"
               fill="none"
             >
-              <path
+              <path 
                 d="M0.5 18C0.5 8.33502 8.33502 0.5 18 0.5C27.665 0.5 35.5 8.33502 35.5 18C35.5 27.665 27.665 35.5 18 35.5C8.33502 35.5 0.5 27.665 0.5 18Z"
                 fill="white"
                 stroke="#3B8CFA"
