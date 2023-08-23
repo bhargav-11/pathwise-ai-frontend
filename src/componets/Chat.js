@@ -79,11 +79,11 @@ export const Chat = ({
   };
 
   return (
-    <div className="chat" style={{marginTop:"0.2%"}}>
+    <div className="chat" style={{ marginTop: "0.2%" }}>
       <div className="chat-space">
         <div className="container">
           <div className="row justify-content-center mt-2 mb-2">
-            <div className="col-md-3" style={{width:"28%"}}>
+            <div className="col-md-3" style={{ width: "28%" }}>
               <div className="box">
                 <img src={chat} />
                 <div
@@ -114,11 +114,11 @@ export const Chat = ({
           <div className="col-md-4 folder-content-1" >
             <div class=" row">
               <div class="row">
-                <label for="inputPassword" class="col-sm-3 col-form-label" style={{marginTop:"3%"}}>
+                <label for="inputPassword" class="col-sm-3 col-form-label" style={{ marginTop: "2%",color:"#3b8cfa",marginLeft:"0.5rem" }}>
                   folderId
                 </label>
                 <div class="col-sm-8 ms-3">
-                  <input style={{marginTop:"3%"}}
+                  <input style={{ marginTop: "3%" }}
                     type="text"
                     class="form-control"
                     id="inputPassword"
@@ -130,7 +130,7 @@ export const Chat = ({
             <button>retrain</button>
           </div>
           <div className="col-md-4 folder-content-1 ms-3">
-            <div className="me-4 mt-3">temperature</div>{" "}
+            <div className="me-4 mt-2" style={{marginLeft:"1rem"}}>temperature</div>{" "}
             <Box sx={{ width: 180 }}>
               <Slider
                 aria-label="Custom marks"
@@ -153,15 +153,23 @@ export const Chat = ({
           isnewchat={isnewchat}
         />
       </div>
-      <Input
-        message={message}
-        setMessage={setMessage}
-        handleApiCall={handleApiCall}
-        setMessageList={setMessageList}
-        setRefrshMsgList={setRefrshMsgList}
-        buttonClicked={buttonClicked}
-        setButtonClicked={setButtonClicked}
-      />
+      {isnewchat ? (
+        <>
+        </>
+      ) : (
+        <>
+          <Input
+            message={message}
+            setMessage={setMessage}
+            handleApiCall={handleApiCall}
+            setMessageList={setMessageList}
+            setRefrshMsgList={setRefrshMsgList}
+            buttonClicked={buttonClicked}
+            setButtonClicked={setButtonClicked}
+          />
+        </>
+      )}
+
     </div>
   );
 };
