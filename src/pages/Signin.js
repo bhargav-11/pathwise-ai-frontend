@@ -21,8 +21,18 @@ function Signin() {
     username: "",
     password: "",
   });
-
+  const [errors, setErrors] = useState({});
   const navigate = useNavigate();
+  const validateForm = () => {
+    let newErrors = {};
+    if (!userData.username) {
+      newErrors.username = "*Username is required.";
+    }
+    if (!userData.password) {
+      newErrors.password = "*Password is required.";
+    }
+    return newErrors;
+  };
 
   const handlechange = (event) => {
     const { name, value } = event.target;
@@ -34,23 +44,29 @@ function Signin() {
       username: userData.username,
       password: userData.password,
     });
-    try {
-      const apiUrl = process.env.REACT_APP_API_URL + "/user_login";
-      axios
-        .post(apiUrl, Requestdata, {
-          headers: { "Content-Type": "application/json" },
-        })
-        .then((response) => {
-          if (response.status === 200) {
-            navigate("/home");
-            localStorage.setItem("islogin", response.data.is_admin);
-          }
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    } catch (error) {
-      console.log(error);
+    const newErrors = validateForm();
+    if (Object.keys(newErrors).length === 0) {
+      try {
+        const apiUrl = process.env.REACT_APP_API_URL + "/user_login";
+        axios
+          .post(apiUrl, Requestdata, {
+            headers: { "Content-Type": "application/json" },
+          })
+          .then((response) => {
+            if (response.status === 200) {
+              navigate("/home");
+              localStorage.setItem("islogin", response.data.is_admin);
+            }
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      setErrors(newErrors);
+      console.log(newErrors);
     }
   };
   useEffect(() => {
@@ -76,7 +92,7 @@ function Signin() {
           <MDBTabsPane show={loginRegisterActive === "login"}>
             <form>
               <MDBInput
-                className="mb-4"
+                // className="mb-4"
                 id="form8Example2"
                 label="Username"
                 name="username"
@@ -84,8 +100,9 @@ function Signin() {
                 value={userData.username}
                 onChange={handlechange}
               />
+              {errors.username && <div className="text-danger">{errors.username}</div>}
               <MDBInput
-                className="mb-4"
+                className="mt-4"
                 type="password"
                 id="form7Example2"
                 name="password"
@@ -94,16 +111,16 @@ function Signin() {
                 label="Password"
                 onChange={handlechange}
               />
-
+              {errors.password && <div className="text-danger">{errors.password}</div>}
               <MDBBtn
                 type="submit"
-                className="mb-4"
+                className="mt-4"
                 block
                 onClick={handlesubmit}
               >
                 Sign In User
               </MDBBtn>
-              <div style={{ textAlign: "center" }}>
+              <div className="mt-3" style={{ textAlign: "center" }}>
                 <Link
                   to="http://localhost:5000/login"
                   className="text-center text-decoration-none"
