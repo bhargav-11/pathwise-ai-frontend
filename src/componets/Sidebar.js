@@ -10,7 +10,7 @@ const Sidebar = ({
   isnewchat,
   selectedItemIndex,
 }) => {
-  const navigate = useNavigate();
+const navigate = useNavigate();
   const handlelogout = () => {
     localStorage.removeItem("islogin");
     navigate("/");
@@ -21,8 +21,7 @@ const Sidebar = ({
         <div className="logo">
           <div>ChatBot</div>
         </div>
-        <div className="sidebutton" style={{ cursor: "pointer" }}>
-          <div onClick={handlelogout}>
+        <div className="sidebutton">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="42"
@@ -50,7 +49,6 @@ const Sidebar = ({
                 stroke-width="1.5"
               />
             </svg>
-          </div>
         </div>
       </div>
       <div
@@ -101,7 +99,6 @@ const Sidebar = ({
         )}
       </div>
       <div className="history">
-        {allHistory?.length > 0 && (
           <div className="historyicon">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -120,7 +117,6 @@ const Sidebar = ({
             </svg>{" "}
             <span className="chat_history">Chat History</span>
           </div>
-        )}
       </div>
       <div className="save-history">
         <div className="selected-type">

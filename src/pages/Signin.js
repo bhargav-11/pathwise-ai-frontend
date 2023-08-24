@@ -16,13 +16,14 @@ import { FaLongArrowAltRight } from "react-icons/fa";
 
 function Signin() {
   const [loginRegisterActive, setLoginRegisterActive] = useState("login");
-
+  
   const [userData, setuserData] = useState({
     username: "",
     password: "",
   });
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
+
   const validateForm = () => {
     let newErrors = {};
     if (!userData.username) {
@@ -33,11 +34,12 @@ function Signin() {
     }
     return newErrors;
   };
-
+  
   const handlechange = (event) => {
     const { name, value } = event.target;
     setuserData((prevData) => ({ ...prevData, [name]: value }));
   };
+
   const handlesubmit = (event) => {
     event.preventDefault();
     let Requestdata = JSON.stringify({
@@ -54,6 +56,8 @@ function Signin() {
           })
           .then((response) => {
             if (response.status === 200) {
+              const firstLetter = userData.username.charAt(0).toUpperCase();
+              localStorage.setItem("firstLetter", firstLetter);
               navigate("/home");
               localStorage.setItem("islogin", response.data.is_admin);
             }
@@ -72,7 +76,7 @@ function Signin() {
   useEffect(() => {
     if (localStorage.getItem("islogin")) {
       navigate("/home");
-    }
+  }
   }, []);
   return (
     <div className="signin">
@@ -96,22 +100,20 @@ function Signin() {
                 id="form8Example2"
                 label="Username"
                 name="username"
-                required
                 value={userData.username}
                 onChange={handlechange}
               />
-              {errors.username && <div className="text-danger">{errors.username}</div>}
+{errors.username && <div className="text-danger">{errors.username}</div>}
               <MDBInput
                 className="mt-4"
                 type="password"
                 id="form7Example2"
                 name="password"
-                required
                 value={userData.password}
                 label="Password"
                 onChange={handlechange}
               />
-              {errors.password && <div className="text-danger">{errors.password}</div>}
+{errors.password && <div className="text-danger">{errors.password}</div>}
               <MDBBtn
                 type="submit"
                 className="mt-4"
@@ -120,7 +122,7 @@ function Signin() {
               >
                 Sign In User
               </MDBBtn>
-              <div className="mt-3" style={{ textAlign: "center" }}>
+<div className="mt-3" style={{ textAlign: "center" }}>
                 <Link
                   to="http://localhost:5000/login"
                   className="text-center text-decoration-none"

@@ -5,6 +5,7 @@ import Input from "./Input";
 import chat from "../images/chat.png";
 import logo from "../images/logo.svg";
 import { Box, Slider } from "@mui/material";
+import { Link, useNavigate } from "react-router-dom";
 
 const marks = [
   {
@@ -33,7 +34,12 @@ export const Chat = ({
   const [, setRefrshMsgList] = useState(false);
   const [buttonClicked, setButtonClicked] = useState(false);
   const [loading, setLoading] = useState(false);
-
+  const firstLetter = localStorage.getItem("firstLetter");
+  const navigate = useNavigate();
+  const handlelogout = () => {
+    localStorage.removeItem("islogin");
+    navigate("/");
+  };
   React.useEffect(() => {
     setMessageList(chathistoryList);
     setChatId(chat_history_id);
@@ -105,6 +111,11 @@ export const Chat = ({
             </div>
           </div>
         </div>
+        <div onClick={handlelogout}>
+        <div className="round"  style={{ cursor: "pointer" }}>
+          <h1 class="text-center">{firstLetter}</h1>
+          </div>
+      </div>
       </div>
       <div className="container folder-content mt-3">
         <div className="row justify-content-center">
@@ -136,7 +147,7 @@ export const Chat = ({
             <button>retrain</button>
           </div>
           <div className="col-md-4 folder-content-1 ms-3">
-            <div className="me-4 mt-2" style={{ marginLeft: "1rem" }}>
+            <div className="me-4 " style={{ marginLeft: "1rem", marginTop: "2.6%" }}>
               temperature
             </div>{" "}
             <Box sx={{ width: 180 }}>
@@ -173,9 +184,13 @@ export const Chat = ({
             setRefrshMsgList={setRefrshMsgList}
             buttonClicked={buttonClicked}
             setButtonClicked={setButtonClicked}
+            
           />
-        </>
-      )}
-    </div>
+         
+        
+    </>
+  )
+}
+    </div >
   );
 };

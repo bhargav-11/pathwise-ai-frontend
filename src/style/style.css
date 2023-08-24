@@ -40,12 +40,12 @@ body {
 }
 
 .sidebar .newchat {
-  margin: 0rem 0.2rem;
+  margin-right: 0.1rem;
+  margin-left: 0.1rem;
   cursor: pointer;
   border-radius: 0.6rem;
   border: 3px solid #fff;
-  padding: 0.3rem 1rem;
-
+  padding: 0.4rem 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -68,7 +68,7 @@ body {
   border-radius: 0.6rem;
   border: 3px solid #3b8cfa;
   background-color: #fff;
-  padding: 0.4rem 1.2rem;
+  padding: 0.4rem 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -79,7 +79,7 @@ body {
   margin-left: 1rem;
 }
 .sidebar .history {
-  padding: 1.5rem 3.44rem;
+  padding: 1.5rem 2.4rem;
 }
 
 .sidebar .chat_history {
@@ -241,7 +241,7 @@ body {
 .message .other img {
   width: 7%;
   height: 7%;
-  margin-left: 2%;
+  margin-left: 6%;
 }
 
 .message .other .message-content {
@@ -260,7 +260,6 @@ body {
 }
 
 .message-info .user {
-  /* margin-top: 0rem; */
   display: flex;
   flex-direction: row-reverse;
   gap: 10px;
@@ -269,7 +268,7 @@ body {
 .user img {
   width: 7%;
   height: 7%;
-  margin-right: 2%;
+  margin-right: 6%;
 }
 
 .user .message-content {
@@ -475,3 +474,23 @@ body {
     text-align: center; /* Center-align the text in the second column */
   }
 }
+/* side round start */
+.round {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%; 
+  background-color: #3b8cfa; 
+  display: block;
+  margin-left: auto;
+  margin-right: 5%;
+  margin-top: -5%;
+  margin-bottom: 1%;
+}
+.round h1{
+  color: #fff;
+  font-size: 26px;
+  font-weight: 400;
+  padding-top: 18%;
+
+}
+/* side round end */
