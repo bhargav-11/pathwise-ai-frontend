@@ -6,6 +6,10 @@ import chat from "../images/chat.png";
 import logo from "../images/logo.svg";
 import { Box, Slider } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
+import { Tooltip } from 'react-tooltip'
+
+
+
 
 const marks = [
   {
@@ -82,7 +86,7 @@ export const Chat = ({
   };
 
   return (
-    <div className="chat" style={{ marginTop: "0.2%" }}>
+    <div className="chat" style={{ marginTop: "0.2%", marginLeft: "18%" }}>
       <div className="chat-space">
         <div className="container">
           <div className="row justify-content-center mt-2 mb-2">
@@ -111,86 +115,93 @@ export const Chat = ({
             </div>
           </div>
         </div>
-        <div onClick={handlelogout}>
-        <div className="round"  style={{ cursor: "pointer" }}>
-          <h1 class="text-center">{firstLetter}</h1>
-          </div>
-      </div>
-      </div>
-      <div className="container folder-content mt-3">
-        <div className="row justify-content-center">
-          <div className="col-md-4 folder-content-1">
-            <div class=" row">
-              <div class="row">
-                <label
-                  for="inputPassword"
-                  class="col-sm-3 col-form-label"
-                  style={{
-                    marginTop: "2%",
-                    color: "#3b8cfa",
-                    marginLeft: "0.5rem",
-                  }}
-                >
-                  folderId
-                </label>
-                <div class="col-sm-8 ms-3">
-                  <input
-                    style={{ marginTop: "3%" }}
-                    type="text"
-                    class="form-control"
-                    id="inputPassword"
-                    placeholder="23333455423"
-                  />
+        <div>
+        <div className="example-container">
+  <a 
+    data-tooltip-id="my-tooltip-styles"
+    data-tooltip-content="Log Out"
+  >
+            <div className="round" style={{ cursor: "pointer" }}>
+              <h1 className="text-center">H</h1>
+            </div>
+            </a>
+  <Tooltip id="my-tooltip-styles" className="example" />
+</div></div>
+        </div>
+        <div className="container folder-content mt-1">
+          <div className="row justify-content-center">
+            <div className="col-md-4 folder-content-1">
+              <div class=" row">
+                <div class="row">
+                  <label
+                    for="inputPassword"
+                    class="col-sm-3 col-form-label"
+                    style={{
+                      marginTop: "2%",
+                      color: "#3b8cfa",
+                      marginLeft: "0.5rem",
+                    }}
+                  >
+                    folderId
+                  </label>
+                  <div class="col-sm-8 ms-3">
+                    <input
+                      style={{ marginTop: "3%" }}
+                      type="text"
+                      class="form-control"
+                      id="inputPassword"
+                      placeholder="23333455423"
+                    />
+                  </div>
                 </div>
               </div>
+              <button>retrain</button>
             </div>
-            <button>retrain</button>
-          </div>
-          <div className="col-md-4 folder-content-1 ms-3">
-            <div className="me-4 " style={{ marginLeft: "1rem", marginTop: "2.6%" }}>
-              temperature
-            </div>{" "}
-            <Box sx={{ width: 180 }}>
-              <Slider
-                aria-label="Custom marks"
-                defaultValue={0.8}
-                // getAriaValueText={valuetext}
-                min={0.0}
-                max={1}
-                step={0.1}
-                marks={marks}
-                valueLabelDisplay="auto"
-              />
-            </Box>
+            <div className="col-md-4 folder-content-1 ms-3">
+              <div className="me-4 " style={{ marginLeft: "0.6rem", marginTop: "2.6%" }}>
+                temperature
+              </div>{" "}
+              <Box sx={{ width: 180 }} style={{ marginLeft: "10%" }}>
+                <Slider
+                  aria-label="Custom marks"
+                  defaultValue={0.8}
+                  // getAriaValueText={valuetext}
+                  min={0.0}
+                  max={1}
+                  step={0.1}
+                  marks={marks}
+                  valueLabelDisplay="auto"
+                />
+              </Box>
+            </div>
           </div>
         </div>
-      </div>
-      <div className="chat-messages">
-        <Messages
-          messageList={messageList}
-          loading={loading}
-          isnewchat={isnewchat}
-        />
-      </div>
-      {isnewchat ? (
-        <></>
-      ) : (
-        <>
-          <Input
-            message={message}
-            setMessage={setMessage}
-            handleApiCall={handleApiCall}
-            setMessageList={setMessageList}
-            setRefrshMsgList={setRefrshMsgList}
-            buttonClicked={buttonClicked}
-            setButtonClicked={setButtonClicked}
-            
+        <div className="chat-messages">
+          <Messages
+            messageList={messageList}
+            loading={loading}
+            isnewchat={isnewchat}
           />
-         
-        
-    </>
-  )
-}
-    </div >
-  );
+        </div>
+        {isnewchat ? (
+          <></>
+        ) : (
+          <>
+            <Input
+              message={message}
+              setMessage={setMessage}
+              handleApiCall={handleApiCall}
+              setMessageList={setMessageList}
+              setRefrshMsgList={setRefrshMsgList}
+              buttonClicked={buttonClicked}
+              setButtonClicked={setButtonClicked}
+
+            />
+
+
+          </>
+        )
+        }
+      </div >
+      );
 };

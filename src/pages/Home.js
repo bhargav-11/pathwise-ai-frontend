@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Chat } from "../componets/Chat";
 import Sidebar from "../componets/Sidebar";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { Route, Routes, useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -11,19 +12,20 @@ const Home = () => {
   const [allHistory, setAllHistory] = useState([]);
   const [selectedItemIndex, setSelectedItemIndex] = useState(null);
   const [isnewchat, setIsNewChat] = useState(false);
-  // useEffect(() => {
-  //   axios
-  //     .get("http://localhost:5000/get_all_chat_history")
-  //     .then((response) => {
-  //       setAllHistory(response.data.chat_history);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  //     if (!localStorage.getItem("islogin")) {
-  //       navigate("/");
-  //     }
-  // }, [shouldReload]);
+  const navigate =useNavigate();
+  useEffect(() => {
+    // axios
+    //   .get("http://localhost:5000/get_all_chat_history")
+    //   .then((response) => {
+    //     setAllHistory(response.data.chat_history);
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
+      // if (!localStorage.getItem("islogin")) {
+      //   navigate("/");
+      // }
+  }, [shouldReload]);
 
   const gethistory = (id) => {
     axios

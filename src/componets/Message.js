@@ -32,7 +32,9 @@ const Message = ({ ask, response }) => {
             </div>
           </div>
         </div>
+        
       </div>
+      
     </>
   );
 };

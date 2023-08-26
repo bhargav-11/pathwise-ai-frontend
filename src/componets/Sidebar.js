@@ -1,4 +1,4 @@
-import React from "react";
+import {React,useState} from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { BiMessage } from "react-icons/bi";
 
@@ -10,25 +10,28 @@ const Sidebar = ({
   isnewchat,
   selectedItemIndex,
 }) => {
-const navigate = useNavigate();
-  const handlelogout = () => {
-    localStorage.removeItem("islogin");
-    navigate("/");
+  const [sidebarVisible, setSidebarVisible] = useState(true);
+
+  const toggleSidebar = () => {
+    setSidebarVisible(!sidebarVisible);
   };
   return (
-    <div className="sidebar">
+    <div className={`sidebar ${sidebarVisible ? 'visible' : ''}`}>
       <div className="sidebar-logo">
         <div className="logo">
           <div>ChatBot</div>
         </div>
-        <div className="sidebutton">
-            <svg
+        <div className="sidebutton" style={{ cursor: "pointer"}} >
+            <svg 
               xmlns="http://www.w3.org/2000/svg"
               width="42"
               height="42"
               viewBox="0 0 42 42"
               fill="none"
+              onClick={toggleSidebar}
+              style={{position:"relative",left:"460%"}}
             >
+
               <circle cx="21" cy="21" r="21" fill="white" />
               <rect
                 x="11.75"
@@ -39,6 +42,7 @@ const navigate = useNavigate();
                 stroke="#3B8CFA"
                 stroke-width="1.5"
               />
+              
               <rect
                 x="19.6071"
                 y="11.75"
@@ -49,8 +53,8 @@ const navigate = useNavigate();
                 stroke-width="1.5"
               />
             </svg>
+          </div>
         </div>
-      </div>
       <div
         className={isnewchat ? "select-newchat" : "newchat"}
         onClick={() => {
@@ -171,7 +175,7 @@ const navigate = useNavigate();
           <div className="questionicon">
             <svg
               className="i"
-              style={{ position: "relative", left: "12px" }}
+              style={{ position: "relative", left: "4px" }}
               xmlns="http://www.w3.org/2000/svg"
               width="24"
               height="24"
@@ -188,7 +192,7 @@ const navigate = useNavigate();
             </svg>
             <span
               className="disablelink"
-              style={{ position: "relative", left: "10px" }}
+              style={{ position: "relative", left: "4px" }}
             >
               Chat 1
             </span>
@@ -225,7 +229,7 @@ const navigate = useNavigate();
           <div className="questionicon">
             <svg
               className="i"
-              style={{ position: "relative", left: "12px" }}
+              style={{ position: "relative", left: "4px" }}
               xmlns="http://www.w3.org/2000/svg"
               width="24"
               height="24"
@@ -242,7 +246,7 @@ const navigate = useNavigate();
             </svg>{" "}
             <span
               className="disablelink"
-              style={{ position: "relative", left: "10px" }}
+              style={{ position: "relative", left: "4px" }}
             >
               Chat 1
             </span>

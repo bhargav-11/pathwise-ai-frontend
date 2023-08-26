@@ -16,7 +16,7 @@ function Messages({ messageList, loading, isnewchat }) {
   return (
     <>
       <div className="messages">
-        {isnewchat ? <Googlefolderid /> : <Message />}
+        {isnewchat ? <Googlefolderid /> : <><Message /><Message /><Message /></>}
       </div>
     </>
   );
