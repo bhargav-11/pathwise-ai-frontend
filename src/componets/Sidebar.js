@@ -10,6 +10,7 @@ const Sidebar = ({
   setIsNewChat,
   isnewchat,
   selectedItemIndex,
+  deleteHistory
 }) => {
   const [sidebarVisible, setSidebarVisible] = useState(true);
 
@@ -57,6 +58,7 @@ const Sidebar = ({
       </div>
       <div
         className={isnewchat ? "select-newchat" : "newchat"}
+        onClick={clearhistory}
       >
         <div className={isnewchat ? "select-newchat-input" : "newchat-input"}>
           New Chat
@@ -179,7 +181,7 @@ const Sidebar = ({
                <ChatHistoryItem child={value.message}/>
               </span>
             </div>
-            <div className="history-delete">
+            <div className="history-delete" onClick={()=>deleteHistory(value.id)}>
               {selectedItemIndex === value.id ? ( <svg
               xmlns="http://www.w3.org/2000/svg"
               width="36"

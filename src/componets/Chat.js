@@ -30,6 +30,7 @@ export const Chat = ({
   setIsNewChat,
   historyFolderid
 }) => {
+  const apiurl = process.env.REACT_APP_API_URL;
   const [message, setMessage] = useState("");
   const [messageList, setMessageList] = useState();
   const [chat_id, setChatId] = useState(chat_history_id);
@@ -59,7 +60,6 @@ export const Chat = ({
     setLoading(true);
     setMessage("");
     setButtonClicked(false);
-    const apiUrl = process.env.REACT_APP_API_URL + "/chat";
     let requestBody = {
       user_id: localStorage.getItem("user_id"),
       question: message,
@@ -71,7 +71,7 @@ export const Chat = ({
     } else {
       requestBody["chat_id"] = chat_id;
     }
-    fetch(apiUrl, {
+    fetch(apiurl + "/chat", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -83,11 +83,11 @@ export const Chat = ({
         setLoading((pre) => !pre);
         setShouldReload((pre) => !pre);
         setChatId(data.chat_id);
-        messageList[messageList?.length - 0] = {
+        messageList[messageList?.length - 1] = {
           user: message,
           bot: data.response,
         };
-        setMessageList(messageList);
+        setMessageList([...messageList]);
       })
       .catch((error) => {
         console.error(error);
@@ -164,7 +164,7 @@ export const Chat = ({
                     type="text"
                     class="form-control"
                     id="inputPassword"
-                    placeholder="23333455423"
+                    placeholder="Set FolderId"
                     value={folderid}
                   />
                 </div>

@@ -9,7 +9,7 @@ const Googlefolderid = ({folderid,setFolderid,storagefolderId}) =>{
               <div className="google-folder-input">
                 <input
                   type="text"
-                  placeholder="23333455423333455"
+                  placeholder="Set FolderId"
                   id="centered-input"
                   value={folderid}
                   onChange={(event)=>setFolderid(event.target.value)}

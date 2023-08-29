@@ -1,5 +1,4 @@
 import React from "react";
-import { RiSendPlane2Fill } from "react-icons/ri";
 
 const Input = ({
   message,
@@ -23,30 +22,46 @@ const Input = ({
             value={message}
             onChange={(event) => {
               setMessage(event.target.value);
-              if(!event.target.value || event.target.value.trim()===""){
-                setButtonClicked(false)
+              if (!event.target.value || event.target.value.trim() === "") {
+                setButtonClicked(false);
               }
               setErrormessage("");
               setButtonClicked(true);
             }}
             onKeyPress={(event) => {
               if (event.key == "Enter") {
-              if(message.trim() !== ""){
+                if (message.trim() !== "") {
+                  setMessageList((pre) => {
+                    let array = pre;
+                    array.push({ user: message, bot: "" });
+                    return array;
+                  });
+                  setRefrshMsgList((pre) => !pre);
+                  handleApiCall();
+                } else {
+                  setErrormessage("Input cannot be empty");
+                }
+              }
+            }}
+          />
+          <button
+            className="send-button"
+            id="myBtn"
+            onClick={() => {
+              if (message.trim() !== "") {
                 setMessageList((pre) => {
                   let array = pre;
                   array.push({ user: message, bot: "" });
                   return array;
                 });
-                setRefrshMsgList((pre) => !pre);
+                setRefrshMsgList((prevRefresh) => !prevRefresh);
                 handleApiCall();
-              }else{
-                setErrormessage("Input cannot be empty")
+              } else {
+                setErrormessage("Input cannot be empty");
               }
-            }
             }}
-          />
-          <button className="send-button" id="myBtn" onClick={handleApiCall}>
-          {buttonClicked ? (
+          >
+            {buttonClicked ? (
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="34"
