@@ -113,6 +113,8 @@ body {
   padding: 1rem 1.7rem;
   display: flex;
   justify-content: space-between;
+  cursor: pointer;
+
 }
 
 .save-history .question-type2 .disablelink {
@@ -128,6 +130,7 @@ body {
   padding: 0.7rem 1.5rem;
   display: flex;
   justify-content: space-between;
+  cursor: pointer;
 }
 .question-type .disablelink {
   color: #fff;
@@ -417,13 +420,9 @@ body {
 /* loader */
 
 .loader {
-  margin: 50px auto;
-  border: 3px solid blue;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  border-right-color: transparent;
-  animation: anim 1.5s linear infinite;
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0rem;
 }
 /* error-message */
 

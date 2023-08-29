@@ -59,7 +59,7 @@ function Signin() {
               const firstLetter = userData.username.charAt(0).toUpperCase();
               localStorage.setItem("firstLetter", firstLetter);
               navigate("/home");
-              localStorage.setItem("islogin", response.data.is_admin);
+              localStorage.setItem("user_id", response.data.user_id);
             }
           })
           .catch((error) => {
@@ -74,7 +74,7 @@ function Signin() {
     }
   };
   useEffect(() => {
-    if (localStorage.getItem("islogin")) {
+    if (localStorage.getItem("user_id")) {
       navigate("/home");
   }
   }, []);
