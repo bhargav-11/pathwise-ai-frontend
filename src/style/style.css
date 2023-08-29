@@ -158,9 +158,9 @@ body {
   top: 6px;
 }
 .chat {
-  width: 100%;
-  position: relative;
-  right: 0.4rem;
+  width: 95%;
+  /* position: relative; */
+  /* right: -0.8rem; */
 }
 .collspan {
   width: 100%;
@@ -198,7 +198,7 @@ body {
 }
 
 .folder-content .folder-content-1 {
-  padding: 0.2rem 1rem;
+  padding: 0.2rem 0.5rem;
   border-radius: 0.3125rem;
   border: 1px solid #3b8cfa;
   background: #fff;
