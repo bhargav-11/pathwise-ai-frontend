@@ -67,6 +67,9 @@ body {
   margin-left: 5%;
 }
 .sidebar .select-newchat {
+  margin-right: 0.1rem;
+  margin-left: 0.1rem;
+  cursor: pointer;
   border-radius: 0.6rem;
   border: 3px solid #3b8cfa;
   background-color: #fff;
@@ -78,6 +81,7 @@ body {
 .sidebar .select-newchat .select-newchat-input {
   color: #3b8cfa;
   font-size: 1.3rem;
+  margin-left: 1.2rem;
 }
 .sidebar .history {
   padding: 1.5rem 1.8rem;
@@ -170,10 +174,11 @@ body {
   margin-top: 1rem;
   padding: 0 11.2rem;
   flex: 1;
-  max-height: calc(74vh - 45px);
+  max-height: calc(72vh - 45px);
   overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: #ccc #f7f7f7;
+
 }
 .chat-messages::-webkit-scrollbar {
   width: 6px;
@@ -233,7 +238,7 @@ body {
 
   .messages {
     /* padding: 9px; */
-    min-height: 68vh;
+    min-height: 66vh;
     overflow: hidden;
   }
   
@@ -245,11 +250,12 @@ body {
   display: flex;
   flex-direction: row;
   gap: 10px;
+  padding-left: 1.3rem;
 }
 
 .message .other img {
-  width: 7%;
-  height: 7%;
+  width: 6.5%;
+  height: 6.5%;
   margin-left: 6%;
 }
 
@@ -272,11 +278,12 @@ body {
   display: flex;
   flex-direction: row-reverse;
   gap: 10px;
+  padding-right: 0.8rem;
 }
 
 .user img {
-  width: 7%;
-  height: 7%;
+  width: 6.5%;
+  height: 6.5%;
   margin-right: 6%;
 }
 
@@ -346,6 +353,7 @@ body {
   border: 1px solid #000;
   border-radius: 15px;
   padding: 10px;
+  margin-top: 1rem;
 }
 .message-input {
   flex: 1;
@@ -502,7 +510,7 @@ body {
 .example {
   color: #222;
   background-color:yellow;
-  margin-left: 35%;
+  margin-left: 43%;
 }
 
 /* side round end */

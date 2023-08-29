@@ -47,9 +47,9 @@ function Messages({
           <div className="no-messages"></div>
         )}
          {errorMessage && (
-          <div className="mt-4">
+          <div className="mt-4" style={{ marginLeft: "5rem" }}>
             <img src={avtar} width="7%" height="7%" />
-            <span className="error-message" style={{ marginLeft: "0.7rem" }}>
+            <span className="error-message" style={{ marginLeft: "1rem" }}>
               <BiSolidCommentError className="me-2" />
               {errorMessage}
             </span>
