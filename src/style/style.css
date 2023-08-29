@@ -1,6 +1,5 @@
 body {
   font-family: "Poppins", sans-serif;
-
 }
 
 .home {
@@ -15,7 +14,6 @@ body {
   padding: 0.2rem;
   background: #3b8cfa;
   transition: transform 0.3s;
-
 }
 .collspan-sidebar {
   width: 0%;
@@ -118,7 +116,6 @@ body {
   display: flex;
   justify-content: space-between;
   cursor: pointer;
-
 }
 
 .save-history .question-type2 .disablelink {
@@ -136,29 +133,15 @@ body {
   justify-content: space-between;
   cursor: pointer;
 }
-.question-type .disablelink {
-  color: #fff;
-  font-size: 1.1rem;
-  font-weight: 400;
-}
 
 .save-history .selected-type .selected-link {
   color: #3b8cfa;
   font-size: 1rem;
   font-weight: 400;
-  position: relative;
-  left: 10px;
-  top: 6px;
-}
-.save-history .selected-type .selectedicon {
-  color: #3b8cfa;
-  font-size: 1.3rem;
-  position: relative;
-  left: 4px;
-  top: 6px;
+  padding-left: 0.5rem;
 }
 .chat {
-  width:81%;
+  width: 81%;
   position: fixed;
   right: -0.5rem;
 }
@@ -174,11 +157,10 @@ body {
   margin-top: 1rem;
   padding: 0 11.2rem;
   flex: 1;
-  max-height: calc(72vh - 45px);
+  max-height: calc(69vh - 45px);
   overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: #ccc #f7f7f7;
-
 }
 .chat-messages::-webkit-scrollbar {
   width: 6px;
@@ -214,7 +196,7 @@ body {
 .folder-content .folder-content-1 input {
   border: none;
   border-bottom: 2px solid #3b8cfa;
-  caret-color: transparent; 
+  caret-color: transparent;
 }
 
 .folder-content .folder-content-1 button {
@@ -237,12 +219,12 @@ body {
 
 } */
 
-  .messages {
-    /* padding: 9px; */
-    min-height: 60vh;
-    overflow: hidden;
-  }
-  
+.messages {
+  /* padding: 9px; */
+  min-height: 62vh;
+  overflow: hidden;
+}
+
 .google-folder-id {
   max-height: calc(68vh - 45px);
   overflow: hidden;
@@ -252,7 +234,6 @@ body {
   flex-direction: row;
   gap: 10px;
   padding-left: 1.5rem;
-
 }
 
 .message .other img {
@@ -432,7 +413,7 @@ body {
   justify-content: center;
   padding: 1rem 0rem;
 }
-.retrainLoder{
+.retrainLoder {
   display: flex;
   justify-content: center;
   padding: 0.5rem 0.5rem;
@@ -501,30 +482,28 @@ body {
 .round {
   width: 50px;
   height: 50px;
-  border-radius: 50%; 
-  background-color: #3b8cfa; 
+  border-radius: 50%;
+  background-color: #3b8cfa;
   display: block;
   margin-left: auto;
   margin-right: 5%;
   margin-top: -5%;
   margin-bottom: 1%;
 }
-.round h1{
+.round h1 {
   color: #fff;
   font-size: 26px;
   font-weight: 400;
   padding-top: 18%;
-
 }
 
 .example {
   color: #222;
-  background-color:yellow;
+  background-color: yellow;
   margin-left: 43%;
 }
 
 /* side round end */
-
 
 .app {
   display: flex;
@@ -549,12 +528,9 @@ body {
   position: relative;
 }
 
-
 .sidebutton {
   /* width: 40px;
   height: 40px; */
   cursor: pointer;
   position: fixed;
-
 }
-
