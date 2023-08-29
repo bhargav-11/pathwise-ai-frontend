@@ -16,7 +16,7 @@ const Googlefolderid = ({folderid,setFolderid,storagefolderId}) =>{
                 />
               </div>
               <div className="google-folder-button">
-                <button onClick={storagefolderId}>set</button>
+                <button onClick={()=>storagefolderId("googlefolderid")}>set</button>
               </div>
             </div>
           </div>

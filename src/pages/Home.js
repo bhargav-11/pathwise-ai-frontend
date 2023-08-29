@@ -14,6 +14,7 @@ const Home = () => {
   const [selectedItemIndex, setSelectedItemIndex] = useState(null);
   const [isnewchat, setIsNewChat] = useState(true);
   const [historyFolderid, setHistoryFolderid] = useState("");
+  const [errormessage,setErrormessage] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -63,6 +64,7 @@ const Home = () => {
     setchat_id(0);
     setSelectedItemIndex(0);
     setHistoryFolderid("");
+    setErrormessage("");
   };
 
   return (
@@ -84,6 +86,8 @@ const Home = () => {
           isnewchat={isnewchat}
           setIsNewChat={setIsNewChat}
           historyFolderid={historyFolderid}
+          errormessage={errormessage}
+          setErrormessage={setErrormessage}
         />
       </div>
     </>

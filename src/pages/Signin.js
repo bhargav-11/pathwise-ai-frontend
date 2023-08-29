@@ -13,6 +13,7 @@ import {
 import signin from "../images/Sign in.gif";
 import { useNavigate, Link } from "react-router-dom";
 import { FaLongArrowAltRight } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 function Signin() {
   const [loginRegisterActive, setLoginRegisterActive] = useState("login");
@@ -63,14 +64,29 @@ function Signin() {
             }
           })
           .catch((error) => {
-            console.log(error);
+            Swal.fire({
+              title: error.response.data.message,
+              icon: "error",
+              toast: true,
+              timer: 2000,
+              position: "top-right",
+              timerProgressBar: true,
+              showConfirmButton: false,
+            });
           });
       } catch (error) {
-        console.log(error);
+        Swal.fire({
+          title: error.response.data.message,
+          icon: "error",
+          toast: true,
+          timer: 2000,
+          position: "top-right",
+          timerProgressBar: true,
+          showConfirmButton: false,
+        });
       }
     } else {
       setErrors(newErrors);
-      console.log(newErrors);
     }
   };
   useEffect(() => {

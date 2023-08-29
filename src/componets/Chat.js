@@ -6,6 +6,8 @@ import chat from "../images/chat.png";
 import { Box, Slider } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { Tooltip } from "react-tooltip";
+import axios from "axios";
+import PulseLoader from "react-spinners/PulseLoader";
 
 const marks = [
   {
@@ -28,7 +30,9 @@ export const Chat = ({
   setShouldReload,
   isnewchat,
   setIsNewChat,
-  historyFolderid
+  historyFolderid,
+  errormessage,
+setErrormessage
 }) => {
   const apiurl = process.env.REACT_APP_API_URL;
   const [message, setMessage] = useState("");
@@ -39,7 +43,7 @@ export const Chat = ({
   const [loading, setLoading] = useState(false);
   const [folderid, setFolderid] = useState(historyFolderid);
   const [Temperature,setTemperature] = useState(0.5);
-  const [errormessage,setErrormessage] = useState("");
+  const [retrainLoding, setRetrainLoding] = useState(false);
   const firstLetter = localStorage.getItem("firstLetter");
   const navigate = useNavigate();
   const handlelogout = () => {
@@ -47,9 +51,24 @@ export const Chat = ({
     localStorage.removeItem("firstLetter");
     navigate("/");
   };
-  const storagefolderId = () => {
-    setIsNewChat(false);
-  };
+  const storagefolderId = (action) => {
+    if(action==="retrain"){
+      setIsNewChat(false);
+      setRetrainLoding(true);
+      let data = {
+        folder_id: folderid,
+      };
+      try {
+        axios.post(apiurl + "/retrain", data).then((response) => {
+          setRetrainLoding(false);
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    }else{
+      setIsNewChat(false);
+    }
+  }
   React.useEffect(() => {
     setMessageList(chathistoryList);
     setChatId(chat_history_id);
@@ -162,7 +181,7 @@ export const Chat = ({
                   <input
                     style={{ marginTop: "3%" }}
                     type="text"
-                    class="form-control"
+                    class="form-control chat-folderid"
                     id="inputPassword"
                     placeholder="Set FolderId"
                     value={folderid}
@@ -170,7 +189,20 @@ export const Chat = ({
                 </div>
               </div>
             </div>
-            <button>retrain</button>
+            {retrainLoding ? (
+              <div class="retrainLoder">
+                <PulseLoader
+                  color="#fff"
+                  cssOverride={{}}
+                  loading
+                  margin={4}
+                  size={15}
+                  speedMultiplier={1}
+                />
+              </div>
+            ) : (
+              <button onClick={()=>storagefolderId("retrain")}>retrain</button>
+            )}
           </div>
           <div className="col-md-4 folder-content-1 ms-3">
             <div
@@ -189,9 +221,8 @@ export const Chat = ({
                 step={0.1}
                 marks={marks}
                 valueLabelDisplay="auto"
-                onChange={(newValue) => {
+                onChange={(event,newValue) => {
                   setTemperature(newValue);
-                  console.log(newValue);
                 }}
               />
             </Box>
