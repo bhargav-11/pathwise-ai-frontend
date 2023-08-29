@@ -6,8 +6,8 @@ const Googlefolderid = ({folderid,setFolderid,storagefolderId}) =>{
               <div className="google-folder-content">
                 Enter google drive folder id
               </div>
-              <div className="google-folder-input">
-                <input
+              <div className="google-folder-input" >
+                <input style={{width:"70%"}}
                   type="text"
                   placeholder="Set FolderId"
                   id="centered-input"
