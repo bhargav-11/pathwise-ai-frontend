@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { Tooltip } from "react-tooltip";
 import axios from "axios";
 import PulseLoader from "react-spinners/PulseLoader";
+import Swal from "sweetalert2";
 
 const marks = [
   {
@@ -60,13 +61,55 @@ setErrormessage
       };
       try {
         axios.post(apiurl + "/retrain", data).then((response) => {
+          if(response.status >= 200 && response.status <= 205){
+            Swal.fire({
+              title: response.data.response,
+              icon: "success",
+              toast: true,
+              timer: 2000,
+              position: "top-right",
+              timerProgressBar: true,
+              showConfirmButton: false,
+            });
+          }
+          setRetrainLoding(false);
+        }).catch((error)=>{
+          Swal.fire({
+            title: error.response.data.response,
+            icon: "error",
+            toast: true,
+            timer: 2000,
+            position: "top-right",
+            timerProgressBar: true,
+            showConfirmButton: false,
+          });
           setRetrainLoding(false);
         });
       } catch (error) {
-        console.log(error);
+        Swal.fire({
+          title: error.response.data.response,
+          icon: "error",
+          toast: true,
+          timer: 2000,
+          position: "top-right",
+          timerProgressBar: true,
+          showConfirmButton: false,
+        });
       }
     }else{
-      setIsNewChat(false);
+      if (!folderid) {
+        Swal.fire({
+          title: "Please select folder id",
+          icon: "error",
+          toast: true,
+          timer: 2000,
+          position: "top-right",
+          timerProgressBar: true,
+          showConfirmButton: false,
+        });
+      } else {
+        setIsNewChat(false);
+      }
     }
   }
   React.useEffect(() => {
@@ -109,7 +152,15 @@ setErrormessage
         setMessageList([...messageList]);
       })
       .catch((error) => {
-        console.error(error);
+        Swal.fire({
+          title: error.response.data.error,
+          icon: "error",
+          toast: true,
+          timer: 2000,
+          position: "top-right",
+          timerProgressBar: true,
+          showConfirmButton: false,
+        });
       });
   };
 

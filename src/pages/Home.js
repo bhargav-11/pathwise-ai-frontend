@@ -12,7 +12,7 @@ const Home = () => {
   const [shouldReload, setShouldReload] = useState(false);
   const [allHistory, setAllHistory] = useState([]);
   const [selectedItemIndex, setSelectedItemIndex] = useState(null);
-  const [isnewchat, setIsNewChat] = useState(true);
+  const [isnewchat, setIsNewChat] = useState(false);
   const [historyFolderid, setHistoryFolderid] = useState("");
   const [errormessage,setErrormessage] = useState("");
   const navigate = useNavigate();
@@ -22,10 +22,20 @@ const Home = () => {
     axios
       .get(apiurl + "/get_all_chat_history/" + user_id )
       .then((response) => {
-        setAllHistory(response.data);
+        if(response.status >= 200 && response.status <= 205){
+          setAllHistory(response.data);
+        } 
       })
       .catch((error) => {
-        console.log(error);
+        Swal.fire({
+          title: error.response.data.error,
+          icon: "error",
+          toast: true,
+          timer: 2000,
+          position: "top-right",
+          timerProgressBar: true,
+          showConfirmButton: false,
+        });
       });
     if (!localStorage.getItem("user_id")) {
       navigate("/");
@@ -34,22 +44,17 @@ const Home = () => {
 
   const gethistory = (id, folderId) => {
     axios.get(apiurl +"/get_chats/" + id).then((response) => {
-      setchathistoryList(response.data);
-      setchat_id(id);
-      setSelectedItemIndex(id);
-      setHistoryFolderid(folderId);
-      setIsNewChat(false);
-    });
-  };
-  const deleteHistory = (id) => {
-    axios.delete(apiurl +"/delete_chat_entry/"+id).then((response) => {
-      setShouldReload((pre) => !pre);
-      setchathistoryList([]);
-      setIsNewChat(true);
-      setHistoryFolderid("");
+      if(response.status >= 200 && response.status <= 205){
+        setchathistoryList(response.data);
+        setchat_id(id);
+        setSelectedItemIndex(id);
+        setHistoryFolderid(folderId);
+        setIsNewChat(false);
+      }
+    }).catch((error)=>{
       Swal.fire({
-        title: response.data.message,
-        icon: "success",
+        title: error.response.data.error,
+        icon: "error",
         toast: true,
         timer: 2000,
         position: "top-right",
@@ -58,6 +63,48 @@ const Home = () => {
       });
     });
   };
+  const deleteHistory = (id) => {
+    try{
+    axios.delete(apiurl +"/delete_chat_entry/"+id).then((response) => {
+      if(response.status >= 200 && response.status <= 205){
+        setShouldReload((pre) => !pre);
+        setchathistoryList([]);
+        setIsNewChat(false);
+        setHistoryFolderid("");
+        Swal.fire({
+          title: response.data.message,
+          icon: "success",
+          toast: true,
+          timer: 2000,
+          position: "top-right",
+          timerProgressBar: true,
+          showConfirmButton: false,
+        });
+      }  
+    }).catch((error)=>{
+      Swal.fire({
+        title: error.response.data.error,
+        icon: "error",
+        toast: true,
+        timer: 2000,
+        position: "top-right",
+        timerProgressBar: true,
+        showConfirmButton: false,
+      });
+    });
+  }catch(error){
+    Swal.fire({
+      title: error.response.data.error,
+      icon: "error",
+      toast: true,
+      timer: 2000,
+      position: "top-right",
+      timerProgressBar: true,
+      showConfirmButton: false,
+    });
+  }
+  };
+
   const clearhistory = () => {
     setIsNewChat(!isnewchat)
     setchathistoryList([]);

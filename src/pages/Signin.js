@@ -17,7 +17,7 @@ import Swal from "sweetalert2";
 
 function Signin() {
   const [loginRegisterActive, setLoginRegisterActive] = useState("login");
-  
+
   const [userData, setuserData] = useState({
     username: "",
     password: "",
@@ -35,7 +35,7 @@ function Signin() {
     }
     return newErrors;
   };
-  
+
   const handlechange = (event) => {
     const { name, value } = event.target;
     setuserData((prevData) => ({ ...prevData, [name]: value }));
@@ -56,7 +56,7 @@ function Signin() {
             headers: { "Content-Type": "application/json" },
           })
           .then((response) => {
-            if (response.status === 200) {
+            if (response.status >= 200 && response.status <= 205) {
               const firstLetter = userData.username.charAt(0).toUpperCase();
               localStorage.setItem("firstLetter", firstLetter);
               navigate("/home");
@@ -92,7 +92,7 @@ function Signin() {
   useEffect(() => {
     if (localStorage.getItem("user_id")) {
       navigate("/home");
-  }
+    }
   }, []);
   return (
     <div className="signin">
@@ -117,9 +117,12 @@ function Signin() {
                 label="Username"
                 name="username"
                 value={userData.username}
+                onBlur={validateForm}
                 onChange={handlechange}
               />
-{errors.username && <div className="text-danger">{errors.username}</div>}
+              {errors.username && (
+                <div className="text-danger">{errors.username}</div>
+              )}
               <MDBInput
                 className="mt-4"
                 type="password"
@@ -128,8 +131,11 @@ function Signin() {
                 value={userData.password}
                 label="Password"
                 onChange={handlechange}
+                onBlur={validateForm}
               />
-{errors.password && <div className="text-danger">{errors.password}</div>}
+              {errors.password && (
+                <div className="text-danger">{errors.password}</div>
+              )}
               <MDBBtn
                 type="submit"
                 className="mt-4"
@@ -138,7 +144,7 @@ function Signin() {
               >
                 Sign In User
               </MDBBtn>
-<div className="mt-3" style={{ textAlign: "center" }}>
+              <div className="mt-3" style={{ textAlign: "center" }}>
                 <Link
                   to="http://localhost:5000/login"
                   className="text-center text-decoration-none"
