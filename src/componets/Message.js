@@ -17,6 +17,22 @@ const Message = ({ ask, response }) => {
       showConfirmButton: false,
     });
   }
+  let messageWithBreaks;
+  if (response) {
+     messageWithBreaks = response.split('\n\n').map((paragraph, index) => (
+      <React.Fragment key={index}>
+        {paragraph}
+        <br />
+        <br />
+      </React.Fragment>
+    ));
+  } else {
+    messageWithBreaks = (
+      <div className="error-message" style={{border:"2px solid"}}>
+        Oops! Something went wrong or no response is available.
+      </div>
+    );
+  }
   return (
     <>
       <div className="message">
@@ -31,7 +47,7 @@ const Message = ({ ask, response }) => {
           <div className="other">
             <img src={avtar} />
             <div className="message-content">
-             {response}
+             {messageWithBreaks}
               <div className="copy float-end mt-4">
                 <RiFileCopyLine onClick={copyToclipboard}/>
               </div>
