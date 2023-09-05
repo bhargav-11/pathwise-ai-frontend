@@ -146,7 +146,7 @@ function Signin() {
               </MDBBtn>
               <div className="mt-3" style={{ textAlign: "center" }}>
                 <Link
-                  to="http://localhost:5000/login"
+                  to={process.env.REACT_APP_API_URL + "/login"}
                   className="text-center text-decoration-none"
                 >
                   Admin Login <FaLongArrowAltRight />
